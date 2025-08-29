@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme {
+  --font-ovo: "Ovo", serif;
+  --font-outfit: "Outfit", sans-serif;
+
+  --color-light-hover: #fcf4ff;
+  --color-dark-hover: #2a004a;
+  --color-dark-theme: #11001F;
+}
+
+body {
+  @apply font-outfit; /* Outfit is the default */
+}
