@@ -13,6 +13,8 @@
 # testing
 /coverage
 
+Zone.Identifier
+
 # next.js
 /.next/
 /out/
