@@ -8,11 +8,7 @@ const Projects = () => {
       <h4 className="text-center mb-2 text-lg font-ovo">Mi portafolio</h4>
       <h2 className="text-center text-5xl font-ovo">Mis ultimos trabajos</h2>
       <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-ovo">
-        Te invito a revisar alguno de mis ultimos proyectos! Varian en
-        complejidad y herramientas utilizadas. Algunos consisten de proyectos
-        Full Stack colaborativos completos, otros de APIs con una coleccion de
-        Postman, otros de una API conectada a un frontend sencillo a modo de
-        prueba.
+        Te invito a revisar algunos de mis últimos trabajos. Encontrarás proyectos que varían en complejidad y en el stack utilizado, desde aplicaciones completas hasta pruebas de concepto.
       </p>
 
       <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] my-10 gap-5">

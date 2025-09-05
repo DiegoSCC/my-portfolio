@@ -21,3 +21,6 @@ body {
   @apply font-outfit; /* Outfit is the default */
 }
 
+.dark body {
+    @apply bg-dark-theme text-white;
+}

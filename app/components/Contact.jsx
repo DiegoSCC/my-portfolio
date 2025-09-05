@@ -39,8 +39,7 @@ const Contact = () => {
         <h4 className="text-center mb-2 text-lg font-ovo">Contactame!</h4>
         <h2 className="text-center text-5xl font-ovo">Contacto directo</h2>
         <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-ovo">
-          Si tenes alguna oferta, propuesta, recomendacion o duda, completa el
-          formulario para que podamos ponernos en contacto!
+          Si tenés una propuesta, consulta o proyecto en mente, completá el formulario y me pondré en contacto con vos lo antes posible.
         </p>
 
         <form className="max-w-2xl mx-auto" onSubmit={onSubmit}>
