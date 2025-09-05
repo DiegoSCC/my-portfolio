@@ -14,7 +14,7 @@ const About = ({ isDarkMode }) => { // Add isDarkMode prop
         </div>
         <div className='flex-1'> 
           <p className='mb-10 max-w-3xl font-ovo'>
-            Soy un desarrollador web de Argentina, actualmente residiendo en la provincia de Chaco. Trabajo como freelance y formo parte de un equipo independiente que colabora con pequeñas y medianas empresas de la región. Me encuentro estudiando en la UTN la carrera de <a className='font-semibold'>Ingenieria en sistemas de Información</a> y tengo un fuerte interés en aprender nuevas tecnologías. Algunos de mis pasatiempos son los deportes, el basquét principalmente, el gaming y codear.
+            Soy un desarrollador web de Argentina, actualmente residiendo en la provincia de Chaco. Trabajo como freelance y formo parte de un equipo independiente que colabora con pequeñas y medianas empresas de la región. Me encuentro estudiando en la UTN la carrera de <a className='font-semibold'>Ingenieria en sistemas de Información</a> y tengo un fuerte interés en aprender nuevas tecnologías. Algunos de mis pasatiempos son los deportes, el basquét principalmente, el gaming y codear. Hablo inglés fluidamente y tengo una certificacion de nivel B2.
           </p>
           
           <ul className='grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl'>

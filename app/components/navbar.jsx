@@ -72,23 +72,51 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
           }`}
         >
           <li>
-            <a className="font-ovo" href="#top">
+            <a
+              className={`font-ovo px-3 py-1 rounded-full transition-all duration-300 ${
+                isDarkMode
+                  ? "hover:bg-white/20 hover:text-white"
+                  : "hover:bg-gray-200 hover:text-black"
+              }`}
+              href="#home"
+            >
               Inicio
             </a>
           </li>
           <li>
-            <a className="font-ovo" href="#about">
+            <a
+              className={`font-ovo px-3 py-1 rounded-full transition-all duration-300 ${
+                isDarkMode
+                  ? "hover:bg-white/20 hover:text-white"
+                  : "hover:bg-gray-200 hover:text-black"
+              }`}
+              href="#about"
+            >
               Sobre mi
             </a>
           </li>
           <li>
-            <a className="font-ovo" href="#projects">
-              Mis proyectos
+            <a
+              className={`font-ovo px-3 py-1 rounded-full transition-all duration-300 ${
+                isDarkMode
+                  ? "hover:bg-white/20 hover:text-white"
+                  : "hover:bg-gray-200 hover:text-black"
+              }`}
+              href="#projects"
+            >
+              Proyectos
             </a>
           </li>
           <li>
-            <a className="font-ovo" href="#contact">
-              Contacto
+            <a
+              className={`font-ovo px-3 py-1 rounded-full transition-all duration-300 ${
+                isDarkMode
+                  ? "hover:bg-white/20 hover:text-white"
+                  : "hover:bg-gray-200 hover:text-black"
+              }`}
+              href="#contact"
+            >
+              contacto
             </a>
           </li>
         </ul>

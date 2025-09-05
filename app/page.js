@@ -39,7 +39,7 @@ useEffect(() => {
     <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
     <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
     <About isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
-    <Projects isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
+    <Projects key="projects" isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
     <Contact isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
     <Footer isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
   </>
