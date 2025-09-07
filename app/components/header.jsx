@@ -36,7 +36,7 @@ const Header = ({ isDarkMode }) => {
               : "border-gray-500 text-white bg-black hover:shadow-light"
           }`}
         >
-          contactame{" "}
+          Contactame{" "}
           <Image
             src={
               isDarkMode ? assets.right_arrow_white : assets.right_arrow_white

@@ -116,24 +116,29 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
               }`}
               href="#contact"
             >
-              contacto
+              Contacto
             </a>
           </li>
         </ul>
 
         <div className="flex items-center gap-4">
-          <button onClick={() => setIsDarkMode((prev) => !prev)}>
+          <button
+            onClick={() => setIsDarkMode((prev) => !prev)}
+            className={` border-transparent p-1 rounded-full transition-all duration-500 hover:scale-110 hover:ring-2 ${
+              isDarkMode ? "hover:ring-light-hover/70" : "hover:ring-dark-hover/80"
+            }`}
+          >
             <Image
               alt=""
               src={isDarkMode ? assets.sun_icon : assets.moon_icon}
-              className="w-6"
+              className="w-6 transition-all duration-300"
             />
           </button>
 
           <a
             href="#contact"
-            className={`hidden lg:flex items-center gap-3 px-10 py-2.5 border rounded-full ml-4 hover:-translate-y-1 duration-500 hover:shadow-light ${
-              isDarkMode ? "border-white/50" : "border-gray-500"
+            className={`hidden lg:flex items-center gap-3 px-10 py-2.5 border-[2px] rounded-full ml-4 hover:-translate-y-1 duration-500  ${
+              isDarkMode ? "border-white/50 hover:shadow-dark" : "border-gray-500 hover:shadow-light"
             }`}
           >
             Contactame

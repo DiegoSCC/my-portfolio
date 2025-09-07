@@ -16,7 +16,7 @@ const Projects = ({ isDarkMode }) => {
   return (
     <div id="projects" className="w-full px-[12%] py-10 scroll-mt-20">
       <h4 className="text-center mb-2 text-lg font-ovo">Mi portafolio</h4>
-      <h2 className="text-center text-5xl font-ovo">Mis ultimos trabajos</h2>
+      <h2 className="text-center text-5xl font-ovo">Mis últimos trabajos</h2>
       <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-ovo">
         Te invito a revisar algunos de mis últimos trabajos. Encontrarás
         proyectos que varían en complejidad y en el stack utilizado, desde
@@ -27,11 +27,15 @@ const Projects = ({ isDarkMode }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 my-10 gap-5 max-w-6xl mx-auto">
         {workData.map((project, index) => (
           <div
-            className={`aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group transition-all duration-500 ease-out ${
+            className={`aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group transition-all duration-500 ease-out hover:-translate-y-0.2 ${
               index < itemsToShow || showAll
                 ? "opacity-100 scale-100 translate-y-0"
                 : "opacity-0 scale-95 translate-y-4 h-0 overflow-hidden"
-            } ${index >= itemsToShow && showAll ? "animate-slideIn" : ""}`}
+            } ${index >= itemsToShow && showAll ? "animate-slideIn" : ""} ${
+              isDarkMode
+                ? "hover:shadow-[3px_3px_0_#fcf4ff]"
+                : "hover:shadow-[3px_3px_0_#000]"
+            }`}
             key={index}
             style={{
               backgroundImage: `url(${project.bgImage})`,
@@ -40,10 +44,17 @@ const Projects = ({ isDarkMode }) => {
                   ? `${(index - itemsToShow) * 100}ms`
                   : "0ms",
             }}
+            onClick={() => {
+              if (project.link) {
+                window.open(project.link, "_blank");
+              }
+            }}
           >
             <div
-              className={`w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex items-center justify-between duration-500 group-hover:bottom-7 ${
-                isDarkMode ? "bg-dark-theme border border-white/20" : "bg-white"
+              className={`w-10/12 rounded-md shadow-sm absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 duration-500 group-hover:bottom-7 group-hover:-translate-y-1  ${
+                isDarkMode
+                  ? "bg-dark-theme border border-white/20 group-hover:shadow-dark group-hover:bg-dark-hover"
+                  : "bg-white border-grey/30 group-hover:shadow-light group-hover:bg-light-hover"
               }`}
             >
               <div>
@@ -61,25 +72,6 @@ const Projects = ({ isDarkMode }) => {
                 >
                   {project.description}
                 </p>
-              </div>
-              <div
-                className={`border rounded-full w-9 aspect-square flex items-center justify-center duration-500 cursor-pointer ${
-                  isDarkMode
-                    ? "border-white shadow-[2px_2px_0_#fff] group-hover:bg-dark-hover"
-                    : "border-black shadow-[2px_2px_0_#000] group-hover:bg-light-hover"
-                }`}
-                onClick={(e) => {
-                  e.stopPropagation(); // Prevents event bubbling
-                  if (project.link) {
-                    window.open(project.link, "_blank"); // Opens in new tab
-                  }
-                }}
-              >
-                <Image
-                  src={isDarkMode ? assets.send_icon : assets.send_icon}
-                  alt="send icon"
-                  className="w-5"
-                />
               </div>
             </div>
           </div>
