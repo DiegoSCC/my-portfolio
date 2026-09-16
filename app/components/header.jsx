@@ -1,65 +1,140 @@
 "use client";
 
 import { assets } from "@/assets/assets";
+import { translations } from "@/assets/translations";
 import Image from "next/image";
 import React from "react";
+import { motion } from "motion/react";
 
-const Header = ({ isDarkMode }) => {
-  // Add isDarkMode prop
+const Header = ({ isDarkMode, lang = "es" }) => {
+  const t = translations[lang]?.header || translations.es.header;
+
   return (
-    <div
+    <header
       id="home"
-      className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4"
+      className="w-11/12 max-w-4xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-4 pt-24 pb-12 overflow-hidden"
     >
-      <div>
-        <Image src={assets.profile_img} alt="" className="rounded-full w-32" />
-      </div>
-      <div className="flex justify-center">
-        <h3 className="text-xl md:text-2xl mb-3 font-ovo">
-          Hola! soy Diego Cuello.
-        </h3>
-      </div>
-
-      <h1 className="text-3xl sm:text-6xl lg:text-[66px] font-ovo">
-        Desarrollador web enfocado en Backend
-      </h1>
-      <p className="max-w-2xl mx-auto font-ovo">
-        Soy desarrollador web nacido en Argentina, resido actualmente en la
-        provincia de Chaco.
-      </p>
-      <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
-        <a
-          href="#contact"
-          className={`w-40 px-10 py-3 border rounded-full flex items-center justify-center gap-2 font-outfit hover:-translate-y-1 duration-500 ${
+      <motion.div
+        initial={{ opacity: 0, scale: 0.88 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="relative"
+      >
+        <div
+          className={`p-1.5 rounded-full border transition-colors duration-300 ${
             isDarkMode
-              ? "border-white/50 text-white bg-transparent hover:shadow-dark"
-              : "border-gray-500 text-white bg-black hover:shadow-light"
+              ? "border-emerald-500/30 bg-[#121916] ring-4 ring-emerald-500/15"
+              : "border-gray-200 bg-white ring-4 ring-emerald-500/10 shadow-xs"
           }`}
         >
-          Contactame{" "}
           <Image
-            src={
-              isDarkMode ? assets.right_arrow_white : assets.right_arrow_white
-            }
-            alt=""
-            className="rounded-full w-4"
+            src={assets.user_image}
+            alt="Diego Cuello"
+            className="rounded-full w-28 sm:w-32 object-cover aspect-square"
+            priority
           />
-        </a>
+        </div>
+      </motion.div>
 
-        <a
-          href="/sample-resume.pdf"
-          download
-          className={`w-40 px-10 py-3 border rounded-full flex items-center justify-center gap-2 font-outfit hover:-translate-y-1 duration-500 ${
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+        className="flex items-center justify-center gap-2"
+      >
+        <h3 className="text-lg sm:text-xl md:text-2xl font-ovo flex items-center gap-2 text-gray-800 dark:text-gray-200">
+          {t.greetingPrefix}{" "}
+          <span className="font-semibold text-black dark:text-white">
+            {t.name}
+          </span>
+        </h3>
+      </motion.div>
+
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        className="text-3xl sm:text-5xl lg:text-6xl font-ovo leading-tight max-w-3xl tracking-tight"
+      >
+        {t.rolePrefix}{" "}
+        <span className="underline decoration-emerald-500/70 underline-offset-8">
+          {t.roleHighlight}
+        </span>
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className="max-w-2xl mx-auto font-ovo text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed px-4"
+      >
+        {t.bio}
+      </motion.p>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6"
+      >
+        <motion.a
+          whileHover={{
+            y: -4,
+            boxShadow: isDarkMode
+              ? "0px 4px 0px #042f2e, 0px 8px 16px rgba(16,185,129,0.35)"
+              : "0px 4px 0px #064e3b, 0px 8px 16px rgba(6,78,59,0.3)",
+          }}
+          whileTap={{
+            y: 0,
+            boxShadow: "0px 0px 0px rgba(0,0,0,0)",
+          }}
+          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          href="#contact"
+          className={`w-full max-w-xs sm:w-auto sm:min-w-[190px] px-7 py-3.5 rounded-full flex items-center justify-center gap-2.5 font-outfit text-sm font-medium whitespace-nowrap transition-colors duration-200 cursor-pointer ${
             isDarkMode
-              ? "border-white/50 bg-white text-black hover:shadow-dark"
-              : "border-gray-500 bg-white text-black hover:shadow-light"
+              ? "bg-emerald-500 text-black hover:bg-emerald-400"
+              : "bg-emerald-700 text-white hover:bg-emerald-800"
           }`}
         >
-          Mi CV
-          <Image src={assets.download_icon} alt="" className="w-4" />
-        </a>
-      </div>
-    </div>
+          {t.ctaContact}
+          <Image
+            src={isDarkMode ? assets.right_arrow_bold : assets.right_arrow_white}
+            alt=""
+            className="w-3.5"
+          />
+        </motion.a>
+
+        <motion.a
+          whileHover={{
+            y: -4,
+            boxShadow: isDarkMode
+              ? "0px 4px 0px rgba(16,185,129,0.35), 0px 8px 16px rgba(0,0,0,0.5)"
+              : "0px 4px 0px rgba(0,0,0,0.18), 0px 8px 14px rgba(0,0,0,0.1)",
+          }}
+          whileTap={{
+            y: 0,
+            boxShadow: "0px 0px 0px rgba(0,0,0,0)",
+          }}
+          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          href="/Diego-Santino-Cuello-Resume.pdf"
+          download="Diego-Santino-Cuello-Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`w-full max-w-xs sm:w-auto sm:min-w-[190px] px-7 py-3.5 border rounded-full flex items-center justify-center gap-2.5 font-outfit text-sm font-medium whitespace-nowrap transition-colors duration-200 cursor-pointer ${
+            isDarkMode
+              ? "border-emerald-500/30 text-emerald-300 bg-emerald-950/20 hover:bg-emerald-900/30"
+              : "border-gray-300 text-gray-800 bg-white hover:bg-gray-50"
+          }`}
+        >
+          {t.ctaResume}
+          <Image
+            src={assets.download_icon}
+            alt=""
+            className="w-3.5 dark:invert transition-all"
+          />
+        </motion.a>
+      </motion.div>
+    </header>
   );
 };
 

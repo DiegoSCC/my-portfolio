@@ -1,28 +1,41 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
 @theme {
-  --font-ovo: "Ovo", serif;
-  --font-outfit: "Outfit", sans-serif;
+  --font-ovo: var(--font-ovo), "Ovo", serif;
+  --font-outfit: var(--font-outfit), "Outfit", sans-serif;
 
-  --color-light-hover: #fcf4ff;
-  --color-dark-hover: #2a004a;
-  --color-dark-theme: #11001F;
-
-  --shadow-light: 3px 3px 0 #000;
-  --shadow-dark: 3px 3px 0 #fcf4ff;
+  --color-light-hover: #f0fdf4;
+  --color-dark-hover: #15221d;
+  --color-dark-theme: #0c100e;
 }
 
 body {
-  @apply font-outfit; /* Outfit is the default */
+  @apply font-outfit bg-white text-gray-900 transition-colors duration-300;
 }
 
 .dark body {
-    @apply bg-dark-theme text-white;
+  @apply bg-dark-theme text-white;
+}
+
+/* Hide scrollbar on the side for all browsers while maintaining scrollability */
+html,
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+  width: 0px;
+  height: 0px;
+  background: transparent;
 }
 
 @keyframes fadeIn {
