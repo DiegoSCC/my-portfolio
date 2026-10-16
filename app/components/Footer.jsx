@@ -1,9 +1,10 @@
 "use client";
 
-import { assets } from "@/assets/assets";
-import { translations } from "@/assets/translations";
-import Image from "next/image";
-import { motion } from "motion/react";
+import { assets } from '@/assets/assets';
+import { translations } from '@/assets/translations';
+import Image from 'next/image';
+import React from 'react';
+import { motion } from 'motion/react';
 
 const Footer = ({ isDarkMode, lang = "es" }) => {
   const t = translations[lang]?.footer || translations.es.footer;
@@ -12,45 +13,71 @@ const Footer = ({ isDarkMode, lang = "es" }) => {
   return (
     <motion.footer
       id="footer"
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.35 }}
-      className="mt-12 border-t border-gray-200 px-[7%] py-8 dark:border-white/15 lg:px-[12%]"
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className="mt-20 font-outfit overflow-hidden"
     >
-      <div className="mx-auto flex max-w-6xl flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <a href="#home" className="inline-flex min-h-11 items-center rounded-md">
-            <Image
-              src={isDarkMode ? assets.logo_dark : assets.logo}
-              alt="Diego Cuello — Inicio"
-              className="w-32"
-            />
-          </a>
+      <div className="text-center">
+        <a href="#home" className="inline-block transition-transform duration-300 hover:scale-105">
+          <Image
+            src={isDarkMode ? assets.logo_dark : assets.logo}
+            alt="Diego Cuello Logo"
+            className="w-36 mx-auto mb-3"
+          />
+        </a>
+        <div className="w-max flex items-center gap-2 mx-auto text-sm sm:text-base">
+          <Image
+            src={isDarkMode ? assets.mail_icon_dark : assets.mail_icon}
+            alt="Email icon"
+            className="w-5"
+          />
           <a
             href="mailto:diegosantinocuello@gmail.com"
-            className="mt-1 block text-sm text-gray-600 hover:text-emerald-700 dark:text-gray-300 dark:hover:text-emerald-300"
+            className={`transition-colors duration-200 ${
+              isDarkMode ? "hover:text-emerald-400" : "hover:text-emerald-600"
+            }`}
           >
             diegosantinocuello@gmail.com
           </a>
         </div>
-        <div className="flex flex-col gap-3 text-sm text-gray-600 dark:text-gray-300 sm:items-end">
-          <nav aria-label={lang === "en" ? "Social links" : "Enlaces sociales"}>
-            <ul className="flex min-h-11 items-center gap-6 font-medium">
-              <li>
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/DiegoSCC" className="rounded-sm hover:text-emerald-700 dark:hover:text-emerald-300">
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/diego-cuello" className="rounded-sm hover:text-emerald-700 dark:hover:text-emerald-300">
-                  LinkedIn
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <p>© {currentYear} Diego Cuello. {t.rights}</p>
-        </div>
+      </div>
+
+      <div
+        className={`text-center sm:flex items-center justify-between border-t mx-[10%] mt-12 py-6 text-sm ${
+          isDarkMode
+            ? "border-white/15 text-gray-400"
+            : "border-gray-200 text-gray-600"
+        }`}
+      >
+        <p>© {currentYear} Diego Cuello. {t.rights}</p>
+        <ul className="flex items-center gap-8 justify-center mt-4 sm:mt-0 font-medium">
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/DiegoSCC"
+              className={`transition-colors duration-200 ${
+                isDarkMode ? "hover:text-emerald-400" : "hover:text-emerald-600"
+              }`}
+            >
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.linkedin.com/in/diego-cuello"
+              className={`transition-colors duration-200 ${
+                isDarkMode ? "hover:text-emerald-400" : "hover:text-emerald-600"
+              }`}
+            >
+              LinkedIn
+            </a>
+          </li>
+        </ul>
       </div>
     </motion.footer>
   );
