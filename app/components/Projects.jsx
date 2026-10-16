@@ -31,21 +31,21 @@ const Projects = ({ isDarkMode, lang = "es" }) => {
   const hasMoreItems = filteredProjects.length > initialItemsToShow;
 
   return (
-    <section id="projects" className="w-full px-[7%] py-20 lg:px-[12%] scroll-mt-24 overflow-hidden">
+    <section id="projects" className="w-full px-[6%] md:px-[10%] lg:px-[12%] py-16 scroll-mt-20 overflow-hidden">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="max-w-3xl"
+        className="text-center"
       >
-        <h4 className="mb-2 text-sm font-semibold uppercase tracking-[0.12em] text-emerald-700 dark:text-emerald-400">
+        <h4 className="text-center mb-2 text-base md:text-lg font-ovo tracking-wide text-emerald-600 dark:text-emerald-400 font-medium">
           {t.subtitle}
         </h4>
-        <h2 className="font-ovo text-4xl leading-tight tracking-tight sm:text-5xl">
+        <h2 className="text-center text-4xl sm:text-5xl font-ovo tracking-tight">
           {t.title}
         </h2>
-        <p className="mt-4 mb-8 max-w-2xl text-base leading-relaxed text-gray-700 dark:text-gray-300 sm:text-lg">
+        <p className="text-center max-w-2xl mx-auto mt-4 mb-8 font-ovo text-gray-700 dark:text-gray-300 text-base sm:text-lg">
           {t.intro}
         </p>
       </motion.div>
@@ -75,7 +75,7 @@ const Projects = ({ isDarkMode, lang = "es" }) => {
               }}
               whileTap={{ y: 0, boxShadow: "0px 0px 0px rgba(0,0,0,0)" }}
               transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className={`px-4 sm:px-5 py-2 text-xs sm:text-sm rounded-full transition-colors duration-200 cursor-pointer whitespace-nowrap min-h-11 flex items-center justify-center ${
+              className={`px-4 sm:px-5 py-2 text-xs sm:text-sm rounded-full transition-colors duration-200 cursor-pointer whitespace-nowrap min-h-[38px] flex items-center justify-center ${
                 isSelected
                   ? isDarkMode
                     ? "bg-emerald-500 text-black font-semibold"
@@ -84,7 +84,6 @@ const Projects = ({ isDarkMode, lang = "es" }) => {
                   ? "border border-white/15 text-gray-300 hover:bg-white/10 hover:text-white"
                   : "border border-gray-300 text-gray-700 hover:bg-gray-100"
               }`}
-              aria-pressed={isSelected}
             >
               {cat}
             </motion.button>
@@ -95,7 +94,7 @@ const Projects = ({ isDarkMode, lang = "es" }) => {
       {/* Project Grid */}
       <motion.div
         layout
-        className="mx-auto grid max-w-6xl grid-cols-1 gap-5 md:grid-cols-2 lg:gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
       >
         <AnimatePresence mode="popLayout">
           {displayedProjects.map((project, index) => (
@@ -143,7 +142,7 @@ const Projects = ({ isDarkMode, lang = "es" }) => {
                     {project.title}
                   </h3>
                   <p
-                    className={`mb-4 text-sm leading-relaxed sm:text-base ${
+                    className={`text-xs sm:text-sm leading-relaxed mb-4 ${
                       isDarkMode ? "text-gray-300" : "text-gray-600"
                     }`}
                   >

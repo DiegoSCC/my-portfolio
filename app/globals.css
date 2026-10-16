@@ -5,11 +5,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  color-scheme: light;
-}
-
-.dark {
-  color-scheme: dark;
 }
 
 @theme {
@@ -21,48 +16,26 @@
   --color-dark-theme: #0c100e;
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-text-size-adjust: 100%;
-  overflow-x: clip;
-}
-
 body {
   @apply font-outfit bg-white text-gray-900 transition-colors duration-300;
-  overflow-x: clip;
 }
 
 .dark body {
   @apply bg-dark-theme text-white;
 }
 
-button,
-a,
-[role="button"] {
-  touch-action: manipulation;
+/* Hide scrollbar on the side for all browsers while maintaining scrollability */
+html,
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-button:active,
-a:active,
-[role="button"]:active {
-  scale: 0.98;
-  transition: scale 100ms ease-out;
-}
-
-:focus-visible {
-  outline: 3px solid #047857;
-  outline-offset: 3px;
-}
-
-.dark :focus-visible {
-  outline-color: #6ee7b7;
-}
-
-input,
-textarea,
-select {
-  font-size: 16px;
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+  width: 0px;
+  height: 0px;
+  background: transparent;
 }
 
 @keyframes fadeIn {
@@ -93,27 +66,4 @@ select {
 
 .animate-slideIn {
   animation: slideIn 0.5s ease-out forwards;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-@media (prefers-reduced-transparency: reduce) {
-  .backdrop-blur-md,
-  .backdrop-blur-sm,
-  .backdrop-blur-xs {
-    backdrop-filter: none !important;
-  }
 }
