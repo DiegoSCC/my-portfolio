@@ -1,4 +1,4 @@
-import { Outfit, Ovo  } from "next/font/google";
+import { Outfit, Ovo } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -14,12 +14,25 @@ const ovo = Ovo({
 });
 
 export const metadata = {
-  title: "Portfolio - Diego Cuello",
-  description: "Portafolio profesional de Diego Cuello, desarrollador web con enfoque en Backend, Node.js, Express, PostgreSQL y Next.js.",
+  title: "Diego Cuello — Backend & APIs",
+  description:
+    "Portfolio of Diego Cuello, web developer focused on backend systems, APIs, databases, and full-stack development.",
   openGraph: {
-    title: "Portfolio - Diego Cuello",
-    description: "Portafolio profesional de Diego Cuello, desarrollador web con enfoque en Backend, Node.js, Express, PostgreSQL y Next.js.",
+    title: "Diego Cuello — Backend & APIs",
+    description:
+      "Web developer focused on backend systems, APIs, databases, and full-stack development.",
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0c100e" },
+  ],
 };
 
 export default function RootLayout({ children }) {
@@ -33,20 +46,14 @@ export default function RootLayout({ children }) {
                 try {
                   var stored = localStorage.getItem('theme');
                   var isDark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
-                  if (isDark) {
-                    document.documentElement.classList.add('dark');
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                  }
+                  document.documentElement.classList.toggle('dark', isDark);
                 } catch (e) {}
               })();
             `,
           }}
         />
       </head>
-      <body
-        className={`${outfit.variable} ${ovo.variable} font-outfit antialiased leading-8 overflow-x-hidden`}
-      >
+      <body className={`${outfit.variable} ${ovo.variable} font-outfit antialiased leading-8`}>
         {children}
       </body>
     </html>
